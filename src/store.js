@@ -16,8 +16,6 @@ export const cartReducer = (state, action) => {
   const index = cartList.findIndex((item) => item.id === action.payload.id)
   switch (action.type) {
     case 'CHANGE_QUANTITY':
-      console.log('觸發CHANGE_QUANTITY')
-      console.log(state, action)
       state.number = action.payload.number
       return {
         ...state
