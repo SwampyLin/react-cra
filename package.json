@@ -2,7 +2,7 @@
   "name": "react-cra",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://SwampyLin.github.io/react-cra",
+  "homepage": "https://SwampyLin.github.io/react-cra/src",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

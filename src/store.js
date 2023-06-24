@@ -7,18 +7,31 @@ function calculateTotalPrice(cartList) {
 }
 
 export const cartInit = {
-  cartList: []
+  cartList: [],
+  number: 1
 }
 
 export const cartReducer = (state, action) => {
   const cartList = [...state.cartList]
   const index = cartList.findIndex((item) => item.id === action.payload.id)
   switch (action.type) {
+    case 'CHANGE_QUANTITY':
+      console.log('觸發CHANGE_QUANTITY')
+      console.log(state, action)
+      state.number = action.payload.number
+      return {
+        ...state
+      }
+
     case 'ADD_TO_CART':
       if (index === -1) {
+        console.log(state.number)
+        const orderNumber = state.number
+        action.payload.quantity = orderNumber
         cartList.push(action.payload)
       } else {
-        cartList[index].quantity += action.payload.quantity
+        const orderNumber = state.number
+        cartList[index].quantity += orderNumber
       }
       return {
         ...state,

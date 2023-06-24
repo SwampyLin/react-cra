@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import productsData from '../assets/productsData'
 import { CartContext } from '../store'
 
@@ -16,6 +16,28 @@ export default function Products() {
                   {product.title}
                   <span className='float-end'>NT${product.price}</span>
                 </h6>
+                <select
+                  name=''
+                  id=''
+                  defaultValue={state.number}
+                  onChange={(e) => {
+                    const orderNumber = parseInt(e.target.value) || 1
+                    dispatch({
+                      type: 'CHANGE_QUANTITY',
+                      payload: {
+                        number: orderNumber
+                      }
+                    })
+                  }}
+                >
+                  {[...Array(10)].map((_, i) => {
+                    return (
+                      <option value={i + 1} key={i}>
+                        {i + 1}
+                      </option>
+                    )
+                  })}
+                </select>
                 <button
                   type='button'
                   className='btn btn-outline-primary w-100'
